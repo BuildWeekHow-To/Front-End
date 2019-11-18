@@ -3,7 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import Axios from "axios";
 
-const SignUp = ({ values }) => {
+const SignUp = ({ values, touched, errors }) => {
 
     return (
         <div>
@@ -11,12 +11,15 @@ const SignUp = ({ values }) => {
             <Form>
                 <label>Username
                     <Field type="text" name="username" />
+                    {touched.username && errors.username && (<p>{errors.username}</p>)}
                 </label>
                 <label>Password
                     <Field type="password" name="password" />
+                    {touched.email && errors.email && (<p>{errors.email}</p>)}
                 </label>
                 <label>Email
                     <Field type="email" name="email" />
+                    {touched.password && errors.password && (<p>{errors.password}</p>)}
                 </label>
                 <label>Account Type
                     <Field required as="select" name="userType">
@@ -39,8 +42,7 @@ const FormikSignUp = withFormik({
         }
     },
     validationSchema: Yup.object().shape({
-        firstName: Yup.string().required(),
-        lastName: Yup.string().required(),
+        username: Yup.string().required(),
         password: Yup.string().required(),
         email: Yup.string().required()
 

@@ -1,25 +1,14 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import Axios from "axios";
 
-const SignUp = () => {
-    const [users, setUsers] = useState([]);
-
-    useEffect(() => {
-        status && setUsers(users => [...users, status]);
-    }, [status])
+const SignUp = ({ values }) => {
 
     return (
-        <div className= signUpForm>
+        <div>
             <h2>Sign Up</h2>
             <Form>
-                <label>First Name
-                    <Field type="text" name="firstName" />
-                </label>
-                <label>Last Name
-                    <Field type="text" name="lastName" />
-                </label>
                 <label>Username
                     <Field type="text" name="username" />
                 </label>
@@ -30,16 +19,41 @@ const SignUp = () => {
                     <Field type="email" name="email" />
                 </label>
                 <label>Account Type
-                    <Field required as="select name=" role>
+                    <Field required as="select" name="userType">
                         <option value="user">User</option>
                         <option value="contentcreator">Content Creator</option>
                     </Field>
-                    <label>Terms of Service
-            <Field required type="checkbox" name="tos" checked={values.tos} />
-                    </label>
                     <button>Submit</button>
                 </label>
             </Form>
         </div>
     )
 }
+
+const FormikSignUp = withFormik({
+    mapPropsToValues({ username, password, email }) {
+        return {
+            username: username || "",
+            password: password || "",
+            email: email || ""
+        }
+    },
+    validationSchema: Yup.object().shape({
+        firstName: Yup.string().required(),
+        lastName: Yup.string().required(),
+        password: Yup.string().required(),
+        email: Yup.string().required()
+
+    }),
+
+    handleSubmit(values, { setStatus }) {
+        Axios.post("https://build-week-how-to.herokuapp.com//api/auth/register", values)
+            .then(res => {
+                setStatus(res.data);
+                console.log(res);
+            })
+            .catch(err => console.log(err.response));
+    }
+})(SignUp);
+
+export default FormikSignUp

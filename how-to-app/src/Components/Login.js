@@ -19,21 +19,21 @@ const LogIn = ({ values, errors, touched, status }, props) => {
             <Form>
                 <Field
                     type='text'
-                    name='UserName'
-                    placeholder='Username'
+                    name='username'
+                    placeholder='username'
                 />
-                {touched.UserName && errors.UserName && (
-                    <p className="errors">{errors.UserName}</p>
+                {touched.username && errors.username && (
+                    <p className="errors">{errors.username}</p>
                 )}
 
                 <Field
                     type='password'
-                    name='Password'
-                    placeholder='Password'
+                    name='password'
+                    placeholder='password'
                 />
 
-                {touched.Password && errors.Password &&
-                    (<p className='errors'> {errors.Password}</p>
+                {touched.password && errors.password &&
+                    (<p className='errors'> {errors.password}</p>
                     )}
 
                 <button type="submit"> Log In! </button>
@@ -45,16 +45,16 @@ const LogIn = ({ values, errors, touched, status }, props) => {
 }
 
 const LogInForms = withFormik({
-    mapPropsToValues({ UserName, Password }) {
+    mapPropsToValues({ username, password }) {
         return {
-            UserName: UserName || "",
-            Password: Password || "",
+            username: username || "",
+            password: password || "",
 
         };
     },
     validationSchema: Yup.object().shape({
-        UserName: Yup.string().required(),
-        Password: Yup.string().required()
+        username: Yup.string().required(),
+        password: Yup.string().required()
     }),
     
     handleSubmit(values, {props, setStatus }) {
@@ -64,7 +64,7 @@ const LogInForms = withFormik({
                 setStatus(res.data);
                 console.log(res);
                 localStorage.setItem("token", res.data.token);
-                props.history.push('/howto-dashboard')
+                props.history.push('/add-how-to')
             })
             .catch(err => console.log(err.response));
     }

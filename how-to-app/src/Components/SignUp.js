@@ -32,14 +32,7 @@ const SignUp = ({ values, touched, errors, status }) => {
                     <Field type="usertype" name="usertype" placeholder="User or Content Creator"/>
                     {touched.usertype && errors.usertype && (<p>{errors.usertype}</p>)}
                 </label>
-                <button>Submit</button>
-                {/* <label>Account Type
-                    <Field required as="select" name="userType">
-                        <option value="user">User</option>
-                        <option value="contentcreator">Content Creator</option>
-                    </Field>
-                    <button>Submit</button>
-                </label> */}
+                <button type="submit">Submit</button>                
             </Form>
         </div>
     )
@@ -76,8 +69,17 @@ export default FormikSignUp
 
 
 //For Ola's Use
-                {/* <label>Account Type
-                    <Field type="usertype" name="usertype" placeholder="User or Content Creator"/>
-                    {touched.usertype && errors.usertype && (<p>{errors.usertype}</p>)}
-                </label>
-                <button>Submit</button> */}
+{/* <label>Account Type
+    <Field type="usertype" name="usertype" placeholder="User or Content Creator"/>
+    {touched.usertype && errors.usertype && (<p>{errors.usertype}</p>)}
+</label>
+<button>Submit</button> */}
+
+//Old code block for Account type
+{/* <label>Account Type
+    <Field required as="select" name="userType">
+        <option value="user">User</option>
+        <option value="contentcreator">Content Creator</option>
+    </Field>
+    <button>Submit</button>
+</label> */}

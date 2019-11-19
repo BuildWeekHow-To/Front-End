@@ -53,10 +53,6 @@ transition: all 0.4s ease 0s;
 margin: 20px;
 width: 25%;
 
-&:hover{
-    color: #ADF1D2;
-}
-
 
 `
 const GetStarted = styled.h2`
@@ -120,7 +116,7 @@ const SignUp = ({ values, touched, errors, status }) => {
                         </FieldInfo>
                     </LabelDiv>
                     <LabelDiv>
-                        <SignUpButton>Submit</SignUpButton>
+                        <SignUpButton as="submit">Submit</SignUpButton>
                     </LabelDiv>
 
                 </SignUpDiv>

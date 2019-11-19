@@ -27,7 +27,6 @@ color: white;
 }
 `
 
-
 const BoxSpan = styled.span`
 border: 1px solid white;
 padding: 10px;
@@ -48,15 +47,11 @@ const Nav = () => {
             <NavBox>
                 <H1Style>How-To</H1Style>
                 <NavDiv>
-                    <NavLink>Newsfeed</NavLink>
+                    <NavLink to="/">Newsfeed</NavLink>
                     <NavLink to="/add-how-to">Create Content</NavLink>
                     <NavLink to="/login">Login</NavLink>
                     <NavLink to="/signUp"><BoxSpan>Sign Up</BoxSpan></NavLink>
                 </NavDiv>
-
-
-
-
             </NavBox>
         </div>
     )

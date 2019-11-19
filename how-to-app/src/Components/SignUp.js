@@ -78,17 +78,21 @@ color: #553555;
 const Desc = styled.p`
 color: #706f6c;
 width: 345px;
-display: inline-block;
 margin-top: -3%;
 text-align: left;
 `
-
+const PDiv = styled.p`
+display: flex;
+justify-content: center;
+`
 const SignUp = ({ values, touched, errors }) => {
 
     return (
         <Div1>
             <GetStarted>Get started with a free account</GetStarted>
-            <Desc>Create an account to start hacking your life by discovering and sharing the best life hacks on the internet.</Desc>
+            <PDiv>
+                <Desc>Create an account to start hacking your life by discovering and sharing the best life hacks on the internet.</Desc>
+            </PDiv>
             <Form>
                 <SignUpDiv>
 

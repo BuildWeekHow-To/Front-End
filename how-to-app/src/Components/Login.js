@@ -133,7 +133,7 @@ background-color: #ADF1D2;
 
 
 
-const LogIn = ({ values, errors, touched, status }) => {
+const LogIn = ({ values, errors, touched, status }, props) => {
     const [LogForm, setLogForm] = useState([]);
 
 
@@ -167,21 +167,21 @@ const LogIn = ({ values, errors, touched, status }) => {
             <Entire>
                 <LoginField
                     type='text'
-                    name='UserName'
-                    placeholder='Username'
+                    name='username'
+                    placeholder='username'
                 />
-                {touched.UserName && errors.UserName && (
-                    <p className="errors">{errors.UserName}</p>
+                {touched.username && errors.username && (
+                    <p className="errors">{errors.username}</p>
                 )}
 
                 <LoginField
                     type='password'
-                    name='Password'
-                    placeholder='Password'
+                    name='password'
+                    placeholder='password'
                 />
 
-                {touched.Password && errors.Password &&
-                    (<p className='errors'> {errors.Password}</p>
+                {touched.password && errors.password &&
+                    (<p className='errors'> {errors.password}</p>
                     )}
 
                 <LogInto type="submit"> Log In! </LogInto>
@@ -193,24 +193,26 @@ const LogIn = ({ values, errors, touched, status }) => {
 }
 
 const LogInForms = withFormik({
-    mapPropsToValues({ UserName, Password }) {
+    mapPropsToValues({ username, password }) {
         return {
-            UserName: UserName || "",
-            Password: Password || "",
+            username: username || "",
+            password: password || "",
 
         };
     },
     validationSchema: Yup.object().shape({
-        UserName: Yup.string().required(),
-        Password: Yup.string().required()
+        username: Yup.string().required(),
+        password: Yup.string().required()
     }),
-    handleSubmit(values, { setStatus }) {
+    
+    handleSubmit(values, {props, setStatus }) {
         axios
-            .post("https://reqres.in/api/users", values)
+            .post("https://build-week-how-to.herokuapp.com/api/auth/login", values)
             .then(res => {
                 setStatus(res.data);
                 console.log(res);
-
+                localStorage.setItem("token", res.data.token);
+                props.history.push('/add-how-to')
             })
             .catch(err => console.log(err.response));
     }

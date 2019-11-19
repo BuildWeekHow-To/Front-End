@@ -1,4 +1,4 @@
-import React , { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -31,13 +31,6 @@ const FieldInfo = styled(Field)`
 border-radius: 5px;
 border: 1px solid gray;
 width: 200px;
-padding: 10px;
-`;
-
-const FieldSelect = styled(Field)`
-width: 225px;
-border-radius: 5px;
-border: 1px solid gray;
 padding: 10px;
 `;
 
@@ -77,11 +70,11 @@ justify-content: center;
 const SignUp = ({ values, touched, errors, status }) => {
 
     const [users, setUsers] = useState([]);
-    
+
     useEffect(() => {
-      status && setUsers(users => [...users, status]);
+        status && setUsers(users => [...users, status]);
     }, [status]);
-   
+
 
 
     return (
@@ -115,22 +108,23 @@ const SignUp = ({ values, touched, errors, status }) => {
                     </LabelDiv>
 
                     <LabelDiv>
-                        <Label>Account Type</Label>
-                        <FieldSelect type="usertype" name="usertype" placeholder="User or Content Creator">
+                        <Label>User Type</Label>
+                        <FieldInfo type="usertype" name="usertype" placeholder="User or Content Creator">
                             {touched.usertype && errors.usertype && (<p>{errors.usertype}</p>)}
-                        </FieldSelect>
+                        </FieldInfo>
                     </LabelDiv>
                     <LabelDiv>
                         <SignUpButton>Submit</SignUpButton>
                     </LabelDiv>
-                    
+
                 </SignUpDiv>
             </Form>
         </Div1>
     )
 }
 
-const FormikSignUp = withFormik({mapPropsToValues({ username, password, email, usertype}) {
+const FormikSignUp = withFormik({
+    mapPropsToValues({ username, password, email, usertype }) {
         return {
             username: username || "",
             password: password || "",
@@ -145,9 +139,9 @@ const FormikSignUp = withFormik({mapPropsToValues({ username, password, email, u
         usertype: Yup.string().required()
     }),
 
-    handleSubmit(values, {props, setStatus}) {
+    handleSubmit(values, { props, setStatus }) {
         axios
-        .post("https://build-week-how-to.herokuapp.com/api/auth/register", values)
+            .post("https://build-week-how-to.herokuapp.com/api/auth/register", values)
             .then(res => {
                 setStatus(res.data);
                 console.log(res.status);

@@ -171,7 +171,7 @@ const LogIn = ({ values, errors, touched, status }, props) => {
                     placeholder='username'
                 />
                 {touched.username && errors.username && (
-                    <p className="errors">{errors.username}</p>
+                    <p classname="errors">{errors.username}</p>
                 )}
 
                 <LoginField
@@ -181,7 +181,7 @@ const LogIn = ({ values, errors, touched, status }, props) => {
                 />
 
                 {touched.password && errors.password &&
-                    (<p className='errors'> {errors.password}</p>
+                    (<p classname='errors'> {errors.password}</p>
                     )}
 
                 <LogInto type="submit"> Log In! </LogInto>

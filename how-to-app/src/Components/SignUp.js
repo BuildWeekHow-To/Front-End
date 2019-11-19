@@ -47,18 +47,6 @@ display: flex;
 width: 100px;
 `;
 
-// const EmailSpan = styled.span`
-// margin-right: 45px;
-// `
-// const UsernameSpan = styled.span`
-// margin-right: 15px;
-// `
-// const PasswordSpan = styled.span`
-// margin-right: 20px;
-// `
-// const AccountSpan = styled.span`
-// margin-right: 12px;
-// `
 const SignUpButton = styled.button`
 color: #fff !important;
 text-transform: uppercase;

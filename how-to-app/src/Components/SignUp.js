@@ -52,13 +52,19 @@ border: none;
 transition: all 0.4s ease 0s;
 margin: 20px;
 width: 25%;
+
+&:hover{
+    color: #ADF1D2;
+}
+
+
 `
 const GetStarted = styled.h2`
 color: #553555;
 `
 const Desc = styled.p`
 color: #706f6c;
-width: 345px;
+width: 70%;
 margin-top: -3%;
 text-align: left;
 `

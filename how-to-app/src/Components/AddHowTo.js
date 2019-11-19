@@ -1,13 +1,13 @@
 import React from 'react';
-import {axiosWithAuth} from './utils/axiosWithAuth';
+import {axiosWithoutAuth} from './utils/axiosWithAuth';
 
 
 export class AddHowTo extends React.Component{
     state = {
         addNewHowTo:{
-            title:'',
-            content:'',
-            id: Date.now()
+            name:'',
+            desc:'',
+            user_id: Date.now()
         }
     };
 
@@ -21,10 +21,12 @@ export class AddHowTo extends React.Component{
     };
 
     postNewHowTo = () => {
-        axiosWithAuth()
+        axiosWithoutAuth()
         .post('howtos', this.state.addNewHowTo)
         .then(res => {
-            window.location = '/howto-dashboard'
+            console.log(res)
+        //  this.props.history.push('/dashboard')
+            window.location="/dashboard"
         })
     }
 
@@ -35,16 +37,16 @@ export class AddHowTo extends React.Component{
                 <form>
                     <input 
                         type="text"
-                        name="title"
+                        name="name"
                         placeholder="title"
-                        value={this.state.addNewHowTo.title}
+                        value={this.state.addNewHowTo.name}
                         onChange={this.handleChange}
                     />
                     <textarea
                         type="text"
-                        name="content"
+                        name="desc"
                         placeholder="content"
-                        value={this.state.addNewHowTo.content}
+                        value={this.state.addNewHowTo.desc}
                         onChange={this.handleChange}
                     />
                    

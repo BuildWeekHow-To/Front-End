@@ -12,3 +12,13 @@ export const axiosWithAuth = () => {
         }
     });
 };
+
+export const axiosWithoutAuth = () => {    
+
+    return axios.create({
+        baseURL: 'https://build-week-how-to.herokuapp.com/api',
+        headers:{
+            Authorization: token
+        }
+    });
+};

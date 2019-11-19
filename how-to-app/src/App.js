@@ -1,15 +1,44 @@
 import React from 'react';
-import LogInForms from './Components/Login';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+
 import './App.css';
-import SignUp from "./Components/SignUp"
+
+import LogInForms from './Components/Login';
+import SignUp from "./Components/SignUp";
+import {AddHowTo} from "./Components/AddHowTo";
+import PrivateRoute from "./Components/PrivateRoute";
+
+
 
 function App() {
   return (
-    <div className="App">
+    <Router>
+      <div className="App">
+        <ul>
+          {/* <li>
+            <Link to='/dashboard'>Dashboard</Link>
+          </li> */}
+          <li>
+            <Link to='/add-how-to'>Add How-To</Link>
+          </li>
+          <li>
+            <Link to='/login'>Login</Link>
+          </li>
+          <li>
+            <Link to='/signUp'>SignUp</Link>
+          </li>
+        </ul>
 
-      {<LogInForms />}
-
-    </div>
+        <Switch>
+        
+          <PrivateRoute path='/add-how-to' component={AddHowTo} />
+          {/* <PrivateRoute path='/dashboard' component={<Dashboard />} /> */}
+          <Route path='/login' component={LogInForms} />
+          <Route path='/signup' component={SignUp} />
+        
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

@@ -6,7 +6,7 @@ import Styled from 'styled-components';
 
 
 
-const LogIn = ({ values, errors, touched, status }) => {
+const LogIn = ({ values, errors, touched, status }, props) => {
     const [LogForm, setLogForm] = useState([]);
 
 
@@ -56,13 +56,15 @@ const LogInForms = withFormik({
         UserName: Yup.string().required(),
         Password: Yup.string().required()
     }),
-    handleSubmit(values, { setStatus }) {
+    
+    handleSubmit(values, {props, setStatus }) {
         axios
-            .post("https://reqres.in/api/users", values)
+            .post("https://build-week-how-to.herokuapp.com/api/auth/login", values)
             .then(res => {
                 setStatus(res.data);
                 console.log(res);
-
+                localStorage.setItem("token", res.data.token);
+                props.history.push('/howto-dashboard')
             })
             .catch(err => console.log(err.response));
     }

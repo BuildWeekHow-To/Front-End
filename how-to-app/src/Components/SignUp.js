@@ -14,11 +14,19 @@ padding-bottom: 1%;
 const SignUpDiv = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 
 const LabelDiv = styled.div`
     margin: 1%;
-`
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    width: 350px;
+    
+`;
+
 const FieldInfo = styled(Field)`
 border-radius: 5px;
 border: 1px solid gray;
@@ -26,18 +34,31 @@ width: 200px;
 padding: 10px;
 `;
 
-const EmailSpan = styled.span`
-margin-right: 45px;
-`
-const UsernameSpan = styled.span`
-margin-right: 15px;
-`
-const PasswordSpan = styled.span`
+const FieldSelect = styled(Field)`
+width: 225px;
+border-radius: 5px;
+border: 1px solid gray;
+padding: 10px;
+`;
+
+const Label = styled.label`
 margin-right: 20px;
-`
-const AccountSpan = styled.span`
-margin-right: 12px;
-`
+display: flex;
+width: 100px;
+`;
+
+// const EmailSpan = styled.span`
+// margin-right: 45px;
+// `
+// const UsernameSpan = styled.span`
+// margin-right: 15px;
+// `
+// const PasswordSpan = styled.span`
+// margin-right: 20px;
+// `
+// const AccountSpan = styled.span`
+// margin-right: 12px;
+// `
 const SignUpButton = styled.button`
 color: #fff !important;
 text-transform: uppercase;
@@ -54,38 +75,51 @@ width: 25%;
 const GetStarted = styled.h2`
 color: #553555;
 `
+const Desc = styled.p`
+color: #706f6c;
+width: 345px;
+display: inline-block;
+margin-top: -3%;
+text-align: left;
+`
 
 const SignUp = ({ values, touched, errors }) => {
 
     return (
         <Div1>
             <GetStarted>Get started with a free account</GetStarted>
-
+            <Desc>Create an account to start hacking your life by discovering and sharing the best life hacks on the internet.</Desc>
             <Form>
                 <SignUpDiv>
+
                     <LabelDiv>
-                        <label><UsernameSpan>Username</UsernameSpan>
-                            <FieldInfo type="text" name="username" />
-                            {touched.username && errors.username && (<p>{errors.username}</p>)}
-                        </label>
-                    </LabelDiv>
-                    <label><PasswordSpan>Password</PasswordSpan>
-                        <FieldInfo type="password" name="password" />
-                        {touched.email && errors.email && (<p>{errors.email}</p>)}
-                    </label>
-                    <LabelDiv>
-                        <label><EmailSpan>Email</EmailSpan>
-                            <FieldInfo type="email" name="email" />
-                            {touched.password && errors.password && (<p>{errors.password}</p>)}
-                        </label>
+                        <Label>Username</Label>
+                        <FieldInfo type="text" name="username" />
+                        {touched.username && errors.username && (<p>{errors.username}</p>)}
 
                     </LabelDiv>
-                    <label><AccountSpan>Account Type</AccountSpan>
-                        <FieldInfo required as="select" name="userType">
+
+                    <LabelDiv>
+                        <Label>Password</Label>
+                        <FieldInfo type="password" name="password" />
+                        {touched.email && errors.email && (<p>{errors.email}</p>)}
+                    </LabelDiv>
+
+                    <LabelDiv>
+                        <Label>Email</Label>
+                        <FieldInfo type="email" name="email" />
+                        {touched.password && errors.password && (<p>{errors.password}</p>)}
+
+
+                    </LabelDiv>
+
+                    <LabelDiv>
+                        <Label>Account Type</Label>
+                        <FieldSelect required as="select" name="userType">
                             <option value="user">User</option>
                             <option value="contentcreator">Content Creator</option>
-                        </FieldInfo>
-                    </label>
+                        </FieldSelect>
+                    </LabelDiv>
                     <LabelDiv>
                         <SignUpButton>Submit</SignUpButton>
                     </LabelDiv>

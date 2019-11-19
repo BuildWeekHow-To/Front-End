@@ -8,7 +8,10 @@ const Div1 = styled.div`
 width: 25%;
 display: inline-block;
 margin: 2%;
+padding-right: .6%;
 padding-bottom: 1%;
+background-color: #f5f0f5;
+border-radius: 10px;
 `
 
 const SignUpDiv = styled.div`
@@ -38,6 +41,7 @@ const Label = styled.label`
 margin-right: 20px;
 display: flex;
 width: 100px;
+font-weight: 500;
 `;
 
 const SignUpButton = styled.button`

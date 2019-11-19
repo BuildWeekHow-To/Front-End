@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import Axios from "axios";
@@ -73,7 +73,12 @@ const PDiv = styled.p`
 display: flex;
 justify-content: center;
 `
-const SignUp = ({ values, touched, errors }) => {
+const SignUp = ({ values, touched, errors, status }) => {
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        status && setUsers(users => [...users, status]);
+    }, [status]);
 
     return (
         <Div1>

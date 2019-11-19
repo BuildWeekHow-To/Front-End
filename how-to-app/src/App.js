@@ -8,8 +8,6 @@ import SignUp from "./Components/SignUp";
 import {AddHowTo} from "./Components/AddHowTo";
 import PrivateRoute from "./Components/PrivateRoute";
 
-
-
 function App() {
   return (
     <Router>

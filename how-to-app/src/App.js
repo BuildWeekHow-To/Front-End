@@ -19,16 +19,12 @@ function App() {
       <div className="App">
         <Nav />
 
-
         <Switch>
-
           <PrivateRoute path='/add-how-to' component={AddHowTo} />
           <PrivateRoute path='/dashboard' component={Dashboard} />
           <Route path='/login' component={LogInForms} />
           <Route path='/signup' component={SignUp} />
           <Route path='/searchform' component={SearchForm} />
-
-
 
         </Switch>
       </div>

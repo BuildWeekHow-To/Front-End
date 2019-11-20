@@ -5,7 +5,8 @@ import './App.css';
 
 import LogInForms from './Components/Login';
 import SignUp from "./Components/SignUp";
-import { AddHowTo } from "./Components/AddHowTo";
+import Dashboard from "./Components/Dashboard";
+import {AddHowTo} from "./Components/AddHowTo";
 import PrivateRoute from "./Components/PrivateRoute";
 import Nav from "./Components/Nav";
 
@@ -19,7 +20,7 @@ function App() {
         <Switch>
 
           <PrivateRoute path='/add-how-to' component={AddHowTo} />
-          {/* <PrivateRoute path='/dashboard' component={<Dashboard />} /> */}
+          <PrivateRoute path='/dashboard' component={Dashboard} />
           <Route path='/login' component={LogInForms} />
           <Route path='/signup' component={SignUp} />
 

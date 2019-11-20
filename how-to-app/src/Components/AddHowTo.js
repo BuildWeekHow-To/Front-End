@@ -1,5 +1,5 @@
 import React from 'react';
-import { axiosWithAuth } from './utils/axiosWithAuth';
+import {axiosWithoutAuth} from './utils/axiosWithAuth';
 import Styled from 'styled-components';
 
 const Icons = Styled.div`
@@ -132,10 +132,10 @@ background-color: #ADF1D2;
 
 export class AddHowTo extends React.Component {
     state = {
-        addNewHowTo: {
-            title: '',
-            content: '',
-            id: Date.now()
+        addNewHowTo:{
+            name:'',
+            desc:'',
+            user_id: localStorage.getItem("user_id")
         }
     };
 
@@ -149,16 +149,20 @@ export class AddHowTo extends React.Component {
     };
 
     postNewHowTo = () => {
-        axiosWithAuth()
-            .post('howtos', this.state.addNewHowTo)
-            .then(res => {
-                window.location = '/howto-dashboard'
-            })
+        axiosWithoutAuth()
+        .post('howtos', this.state.addNewHowTo)
+        .then(res => {
+            console.log(res)
+        //  this.props.history.push('/dashboard')
+            window.location="/dashboard"
+        })
     }
 
     render() {
         return (
             <div>
+                <h2>Add How-To</h2>
+                
                 <link rel={"stylesheet"} href={"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"} />
                 <Icons>
                     <Yellow>
@@ -190,16 +194,16 @@ export class AddHowTo extends React.Component {
                     <form>
                         <ContentTitle
                             type="text"
-                            name="title"
-                            placeholder="Title"
-                            value={this.state.addNewHowTo.title}
+                            name="name"
+                            placeholder="title"
+                            value={this.state.addNewHowTo.name}
                             onChange={this.handleChange}
                         />
                         <Content
                             type="text"
-                            name="content"
-                            placeholder="Content"
-                            value={this.state.addNewHowTo.content}
+                            name="desc"
+                            placeholder="content"
+                            value={this.state.addNewHowTo.desc}
                             onChange={this.handleChange}
                         />
 
@@ -213,3 +217,26 @@ export class AddHowTo extends React.Component {
         )
     }
 }
+
+//Old Code
+{/* <form>
+                    <input 
+                        type="text"
+                        name="name"
+                        placeholder="title"
+                        value={this.state.addNewHowTo.name}
+                        onChange={this.handleChange}
+                    />
+                    <textarea
+                        type="text"
+                        name="desc"
+                        placeholder="content"
+                        value={this.state.addNewHowTo.desc}
+                        onChange={this.handleChange}
+                    />
+                   
+
+                    <button type="submit" onClick={this.postNewHowTo}>
+                        Publish
+                    </button>
+                </form> */}

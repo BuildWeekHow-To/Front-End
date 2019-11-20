@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { axiosWithAuth } from "./utils/axiosWithAuth";
 import Dashboard from "./Dashboard";
-
 
 
 export default function SearchForm() {
@@ -9,9 +8,11 @@ export default function SearchForm() {
     const [query, setQuery] = useState("");
 
     useEffect(() => {
-        axios.get("https://build-week-how-to.herokuapp.com//api/howtos")
+        axiosWithAuth()
+            .get("https://build-week-how-to.herokuapp.com/api/howtos")
             .then(response => {
-                const howtos = response.data.results.filter(howto => howto.name.toLowerCase().includes(query.toLowerCase())
+                console.log(response)
+                const howtos = response.data.filter(data => data.name.toLowerCase().includes(query.toLowerCase())
                 );
                 setData(howtos);
             })
@@ -32,7 +33,7 @@ export default function SearchForm() {
                     value={query}
                     onChange={handleChange}
                 />
-
+                <button type="submit">Search</button>
             </form>
 
             {data.map((howto => {

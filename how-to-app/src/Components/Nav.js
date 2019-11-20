@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from 'styled-components';
-import SearchForm from "./SearchForm";
+
+
 
 
 const H1Style = styled.h1`
@@ -47,7 +48,7 @@ const Nav = () => {
         <div>
             <NavBox>
                 <H1Style>How-To</H1Style>
-                <SearchForm />
+                
                 <NavDiv>
                     <NavLink to="/dashboard">Newsfeed</NavLink>
                     <NavLink to="/add-how-to">Create Content</NavLink>

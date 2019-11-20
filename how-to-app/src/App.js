@@ -9,13 +9,15 @@ import Dashboard from "./Components/Dashboard";
 import {AddHowTo} from "./Components/AddHowTo";
 import PrivateRoute from "./Components/PrivateRoute";
 import Nav from "./Components/Nav";
+import SearchForm from "./Components/SearchForm";
+
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Nav />
-
+        
 
         <Switch>
 
@@ -23,7 +25,9 @@ function App() {
           <PrivateRoute path='/dashboard' component={Dashboard} />
           <Route path='/login' component={LogInForms} />
           <Route path='/signup' component={SignUp} />
-
+          <Route path='/searchform' component={SearchForm} />
+          
+          
         </Switch>
       </div>
     </Router>

@@ -1,44 +1,44 @@
-import React, {useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Styled from 'styled-components';
-import {axiosWithoutAuth} from './utils/axiosWithAuth';
+import { axiosWithoutAuth } from './utils/axiosWithAuth';
 
 const CardsContainer = Styled.div`
 display: flex;
 flex-wrap: wrap;
 `
 
-const IndividualCards= Styled.div`
+const IndividualCards = Styled.div`
 border: 1px solid black;
 border-radius: 1rem;
 width: 25%;
 margin: 1rem;
 `
 
-export default class Dashboard extends React.Component{
-    constructor(){
+export default class Dashboard extends React.Component {
+    constructor() {
         super();
-        this.state={
-            howtos:[]
+        this.state = {
+            howtos: []
         }
     }
 
-    getData=()=>{
-            axiosWithoutAuth()
+    getData = () => {
+        axiosWithoutAuth()
             .get('howtos')
             .then(res => {
                 console.log(res.data)
-                this.setState({howtos: res.data})
+                this.setState({ howtos: res.data })
             })
             .catch(err => console.log(err))
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.getData();
     }
 
-    render(){
+    render() {
         const howtos = this.state.howtos;
-        return(
+        return (
             <CardsContainer className='CardsContainer' >
                 {howtos.map(item => (
                     <IndividualCards key={item.id} className='IndividualCards' >

@@ -5,13 +5,13 @@ import axios from "axios";
 import styled from 'styled-components'
 
 const Div1 = styled.div`
-width: 25%;
-display: inline-block;
+width: 80%;
 margin: 2%;
 padding-right: .6%;
 padding-bottom: 1%;
 background-color: #f5f0f5;
 border-radius: 10px;
+margin-left: 10%;
 `
 
 const SignUpDiv = styled.div`
@@ -68,13 +68,18 @@ color: #553555;
 `
 const Desc = styled.p`
 color: #706f6c;
-width: 70%;
+width: 50%;
 margin-top: -3%;
 text-align: left;
 `
 const PDiv = styled.p`
 display: flex;
 justify-content: center;
+`
+
+const DivContainer = styled.div`
+display: flex;
+flex-direction: column;
 `
 
 const SignUp = ({ values, touched, errors, status }) => {
@@ -89,10 +94,13 @@ const SignUp = ({ values, touched, errors, status }) => {
 
     return (
         <Div1>
-            <GetStarted>Get started with a free account</GetStarted>
-            <PDiv>
-                <Desc>Create an account to start hacking your life by discovering and sharing the best life hacks on the internet.</Desc>
-            </PDiv>
+            <DivContainer>
+                <GetStarted>Get started with a free account</GetStarted>
+                <PDiv>
+                    <Desc>Create an account to start hacking your life by discovering and sharing the best life hacks on the internet.</Desc>
+                </PDiv>
+            </DivContainer>
+
             <Form>
                 <SignUpDiv>
 

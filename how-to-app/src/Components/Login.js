@@ -163,6 +163,11 @@ const LogIn = ({ values, errors, touched, status }, props) => {
                 <Violet>
                     <i class="fa fa-glass"></i>
                 </Violet>
+
+                <Violet>
+                    <i class="fa fa-globe"></i>
+                </Violet>
+
             </Icons>
             <Entire>
                 <LoginField
@@ -204,8 +209,8 @@ const LogInForms = withFormik({
         username: Yup.string().required(),
         password: Yup.string().required()
     }),
-    
-    handleSubmit(values, {props, setStatus }) {
+
+    handleSubmit(values, { props, setStatus }) {
         axios
             .post("https://build-week-how-to.herokuapp.com/api/auth/login", values)
             .then(res => {

@@ -38,7 +38,7 @@ export default function SearchForm() {
             </form>
 
             {data.map((howto => {
-                return (<HowToCard key={howto.id} title={howto.name} desc={howto.desc} />)
+                return (<HowToCard key={howto.id} name={howto.name} desc={howto.desc} />)
             }
             ))}
 

@@ -23,6 +23,7 @@ function App() {
           <PrivateRoute path='/dashboard' component={Dashboard} />
           <Route path='/login' component={LogInForms} />
           <Route path='/signup' component={SignUp} />
+          <Route path='/' component={LogInForms} />
 
         </Switch>
       </div>

@@ -7,7 +7,7 @@ export class AddHowTo extends React.Component{
         addNewHowTo:{
             name:'',
             desc:'',
-            user_id: Date.now()
+            user_id: localStorage.getItem("user_id")
         }
     };
 

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Styled from 'styled-components';
 import { axiosWithoutAuth } from './utils/axiosWithAuth';
+import SearchForm from "./SearchForm";
+
 
 const CardsContainer = Styled.div`
 display: flex;
@@ -13,6 +15,7 @@ border-radius: 1rem;
 width: 25%;
 margin: 1rem;
 `
+
 
 export default class Dashboard extends React.Component {
     constructor() {
@@ -39,16 +42,24 @@ export default class Dashboard extends React.Component {
     render() {
         const howtos = this.state.howtos;
         return (
-            <CardsContainer className='CardsContainer' >
-                {howtos.map(item => (
-                    <IndividualCards key={item.id} className='IndividualCards' >
-                        <h2> {item.name} </h2>
-                        <p> {item.desc} </p>
+            <div>
+                <CardsContainer className='CardsContainer' >
+                    {howtos.map(item => (
+                        <IndividualCards key={item.id} className='IndividualCards' >
+                            <h2> {item.name} </h2>
+                            <p> {item.desc} </p>
+                        </IndividualCards>
+                    ))}
+                </CardsContainer>
+            </div>
 
-                    </IndividualCards>
-                ))}
-            </CardsContainer>
+
+
         )
+
+
     }
+
+
 
 }

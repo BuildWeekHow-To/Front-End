@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "./utils/axiosWithAuth";
-import Dashboard from "./Dashboard";
+import HowToCard from "./HowToCard";
 
 
 export default function SearchForm() {
@@ -17,6 +17,7 @@ export default function SearchForm() {
                 setData(howtos);
             })
     }, [query])
+
 
     const handleChange = event => {
         setQuery(event.target.value);
@@ -37,7 +38,7 @@ export default function SearchForm() {
             </form>
 
             {data.map((howto => {
-                return (<Dashboard key={howto.id} title={howto.name} desc={howto.desc} />)
+                return (<HowToCard key={howto.id} title={howto.name} desc={howto.desc} />)
             }
             ))}
 

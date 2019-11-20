@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Styled from 'styled-components';
 import { axiosWithoutAuth } from './utils/axiosWithAuth';
-import SearchForm from "./SearchForm";
-
 
 const CardsContainer = Styled.div`
 display: flex;
@@ -53,13 +51,6 @@ export default class Dashboard extends React.Component {
                 </CardsContainer>
             </div>
 
-
-
         )
-
-
     }
-
-
-
 }

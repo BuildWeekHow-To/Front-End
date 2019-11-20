@@ -47,7 +47,7 @@ const Nav = () => {
             <NavBox>
                 <H1Style>How-To</H1Style>
                 <NavDiv>
-                    <NavLink to="/">Newsfeed</NavLink>
+                    <NavLink to="/dashboard">Newsfeed</NavLink>
                     <NavLink to="/add-how-to">Create Content</NavLink>
                     <NavLink to="/login">Login</NavLink>
                     <NavLink to="/signUp"><BoxSpan>Sign Up</BoxSpan></NavLink>

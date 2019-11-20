@@ -14,20 +14,7 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
-        <ul>
-          {/* <li>
-            <Link to='/dashboard'>Dashboard</Link>
-          </li> */}
-          <li>
-            <Link to='/add-how-to'>Add How-To</Link>
-          </li>
-          <li>
-            <Link to='/login'>Login</Link>
-          </li>
-          <li>
-            <Link to='/signUp'>SignUp</Link>
-          </li>
-        </ul>
+
 
         <Switch>
 

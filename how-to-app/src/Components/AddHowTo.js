@@ -131,13 +131,16 @@ background-color: #ADF1D2;
 
 
 export class AddHowTo extends React.Component {
-    state = {
-        addNewHowTo:{
-            name:'',
-            desc:'',
-            user_id: localStorage.getItem("user_id")
-        }
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            addNewHowTo:{
+                name:'',
+                desc:'',
+                user_id: localStorage.getItem("user_id")
+            }
+        };
+    }
 
     handleChange = e => {
         this.setState({
@@ -153,8 +156,8 @@ export class AddHowTo extends React.Component {
         .post('howtos', this.state.addNewHowTo)
         .then(res => {
             console.log(res)
-        //  this.props.history.push('/dashboard')
-            window.location="/dashboard"
+            // this.props.history.push('/dashboard')
+             window.location="/dashboard"
         })
     }
 

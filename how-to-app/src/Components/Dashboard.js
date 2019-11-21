@@ -1,5 +1,6 @@
 import React, {useEffect,useState} from 'react'
 import Styled from 'styled-components';
+import axios from "axios";
 import {axiosWithoutAuth} from './utils/axiosWithAuth';
 
 const CardsContainer = Styled.div`
@@ -15,8 +16,8 @@ margin: 1rem;
 `
 
 export default class Dashboard extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
             howtos:[]
         }
@@ -36,7 +37,19 @@ export default class Dashboard extends React.Component{
         this.getData();
     }
 
+    deleteCard = (id) => {
+        axiosWithoutAuth()
+            .delete(`https://build-week-how-to.herokuapp.com/api/howtos/${id}`)
+            .then(res => {
+                console.log(res);
+                this.getData();
+            })           
+            .catch(err => console.log(err.response));
+    }
+
     render(){
+        console.log('This is State', this.state)
+        console.log(this.state.howtos.length)
         const howtos = this.state.howtos;
         return(
             <CardsContainer className='CardsContainer' >
@@ -44,7 +57,12 @@ export default class Dashboard extends React.Component{
                     <IndividualCards key={item.id} className='IndividualCards' >
                         <h2> {item.name} </h2>
                         <p> {item.desc} </p>
-
+                        <button onClick={()=> {this.props.history.push(`/update-howtos/${item.id}`)}} >
+                            Edit
+                        </button>
+                        <button  onClick={()=>this.deleteCard(item.id)}>
+                            Delete
+                        </button>
                     </IndividualCards>
                 ))}
             </CardsContainer>

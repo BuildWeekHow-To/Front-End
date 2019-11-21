@@ -72,16 +72,22 @@ width: 50%;
 margin-top: -3%;
 text-align: left;
 `
-const PDiv = styled.p`
+const PDiv = styled.div`
 display: flex;
 justify-content: center;
+width: 100%;
+max-width: 700px;
+margin-bottom: 1%;
 `
 
 const DivContainer = styled.div`
 display: flex;
 flex-direction: column;
 `
-
+const FlexDiv = styled.div`
+display: flex;
+justify-content: center;
+`
 const SignUp = ({ values, touched, errors, status }) => {
 
     const [users, setUsers] = useState([]);
@@ -96,9 +102,12 @@ const SignUp = ({ values, touched, errors, status }) => {
         <Div1>
             <DivContainer>
                 <GetStarted>Get started with a free account</GetStarted>
-                <PDiv>
-                    <Desc>Create an account to start hacking your life by discovering and sharing the best life hacks on the internet.</Desc>
-                </PDiv>
+                <FlexDiv>
+                    <PDiv>
+                        <Desc>Create an account to start hacking your life by discovering and sharing the best life hacks on the internet.</Desc>
+                    </PDiv>
+                </FlexDiv>
+
             </DivContainer>
 
             <Form>

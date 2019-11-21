@@ -6,6 +6,7 @@ const ContainerDiv = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
+flex-direction: column;
 
 `
 const Divy = styled.div`
@@ -62,7 +63,18 @@ font-weight: 400;
     background-color: #ADF1D2;
     box-shadow: 10px 5px 5px #070707;
 `
+const EditHeading = styled.h2`
+display: flex;
+align-items: center;
+justify-content: center;
+color: #553555;
+border: 3px solid #f5f0f5;
+width: 795px;
+height: 50px;
+margin-bottom: -5px;
+background-color: #fcfafc
 
+`
 const initial = {
     name: '',
     desc: '',
@@ -101,7 +113,9 @@ export const UpdateHowTo = props => {
 
     return (
         <ContainerDiv>
+            <EditHeading>Edit this How-To</EditHeading>
             <Divy>
+
                 <EditForm onSubmit={handleSubmit} >
                     <EditTitle
                         type="text"

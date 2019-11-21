@@ -24,13 +24,14 @@ export const HowToCard = props => {
                     <h2> {item.name} </h2>
                     <p> {item.desc} </p>
                     
-                    <Link to={`/update-howtos/${item.id}`}>
+                    {/* <Link to={`/update-howtos/${item.id}`}>
                         Edit
-                    </Link>
+                    </Link> */}
 
-                    {/* <button onClick={()=> {props.history.push(`/update-howtos/${item.id}`)}} >
+                    <button onClick={()=> {props.history.push(`/update-howtos/${item.id}`); window.location.reload();
+                    }} >
                             Edit
-                        </button> */}
+                    </button>
                     
             
                     <button  onClick={()=>props.deleteCard(item.id)}>

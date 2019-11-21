@@ -6,8 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 ReactDOM.render(
-    <Router>      
-        <App />
+    <Router> 
+        <Route component={App} />
     </Router>
     , document.getElementById('root'));
 

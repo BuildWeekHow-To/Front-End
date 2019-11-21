@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "./utils/axiosWithAuth";
-import HowToCard from "./HowToCard";
+import SearchCard from "./SearchCard";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
@@ -56,7 +56,7 @@ export default function SearchForm() {
             </form>
 
             {data.map((howto => {
-                return (<HowToCard key={howto.id} name={howto.name} desc={howto.desc} />)
+                return (<SearchCard key={howto.id} name={howto.name} desc={howto.desc} />)
             }
             ))}
 

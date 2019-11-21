@@ -25,6 +25,7 @@ function App() {
           <Route path='/login' component={LogInForms} />
           <Route path='/signup' component={SignUp} />
           <Route path='/searchform' component={SearchForm} />
+          <Route path='/' component={LogInForms} />
 
         </Switch>
       </div>

@@ -13,7 +13,7 @@ flex-wrap: wrap;
 
 `
 
-export default function HowToCard(props) {
+export default function SearchCard(props) {
     return (
         <CardContainer>
             <IndividualCard>

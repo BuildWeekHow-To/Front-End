@@ -169,26 +169,26 @@ export class AddHowTo extends React.Component {
                 <link rel={"stylesheet"} href={"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"} />
                 <Icons>
                     <Yellow>
-                        <i class="fa fa-car"></i>
+                        <i className="fa fa-car"></i>
                     </Yellow>
                     <Pink>
-                        <i class="fa fa-bicycle"></i>
+                        <i className="fa fa-bicycle"></i>
                     </Pink>
 
                     <Red>
-                        <i class="fa fa-camera"></i>
+                        <i className="fa fa-camera"></i>
                     </Red>
 
                     <Blue>
-                        <i class="fa fa-coffee"></i>
+                        <i className="fa fa-coffee"></i>
                     </Blue>
 
                     <Violet>
-                        <i class="fa fa-glass"></i>
+                        <i className="fa fa-glass"></i>
                     </Violet>
 
                     <Violet>
-                        <i class="fa fa-globe"></i>
+                        <i className="fa fa-globe"></i>
                     </Violet>
 
                 </Icons>

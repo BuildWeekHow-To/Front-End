@@ -2,18 +2,20 @@ import React, {useEffect,useState} from 'react'
 import Styled from 'styled-components';
 import axios from "axios";
 import {axiosWithoutAuth} from './utils/axiosWithAuth';
+import {HowToCard} from './HowToCard';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-const CardsContainer = Styled.div`
-display: flex;
-flex-wrap: wrap;
-`
+// const CardsContainer = Styled.div`
+// display: flex;
+// flex-wrap: wrap;
+// `
 
-const IndividualCards= Styled.div`
-border: 1px solid black;
-border-radius: 1rem;
-width: 25%;
-margin: 1rem;
-`
+// const IndividualCards= Styled.div`
+// border: 1px solid black;
+// border-radius: 1rem;
+// width: 25%;
+// margin: 1rem;
+// `
 
 export default class Dashboard extends React.Component{
     constructor(props){
@@ -48,11 +50,26 @@ export default class Dashboard extends React.Component{
     }
 
     render(){
-        console.log('This is State', this.state)
-        console.log(this.state.howtos.length)
-        const howtos = this.state.howtos;
+        // console.log('This is State', this.state)
+        // console.log(this.state.howtos.length)
+        // const howtos = this.state.howtos;
         return(
-            <CardsContainer className='CardsContainer' >
+            <Router>
+                <div>
+                    <Route
+                        render={props=> {
+                            return <HowToCard {...props} howtos={this.state.howtos} deleteCard={this.deleteCard} />
+                        }}
+                    />
+                </div>
+            </Router>
+        )
+    }
+
+}
+
+
+{/* <CardsContainer className='CardsContainer' >
                 {howtos.map(item => (
                     <IndividualCards key={item.id} className='IndividualCards' >
                         <h2> {item.name} </h2>
@@ -65,8 +82,4 @@ export default class Dashboard extends React.Component{
                         </button>
                     </IndividualCards>
                 ))}
-            </CardsContainer>
-        )
-    }
-
-}
+            </CardsContainer> */}

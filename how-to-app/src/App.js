@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link , Redirect} from 'react-router-dom';
 
 import './App.css';
 
@@ -13,7 +13,7 @@ import {UpdateHowTo} from "./Components/UpdateHowTo";
 
 function App() {
   return (
-    <Router>
+    // <Router>
       <div className="App">
         <Nav />
 
@@ -26,10 +26,10 @@ function App() {
           <Route path='/login' component={LogInForms} />
           <Route path='/signup' component={SignUp} />
           <Route path='/' component={LogInForms} />
-
+          <Redirect from='/update-howtos/:id' to='/update-howtos/:id' />
         </Switch>
       </div>
-    </Router>
+    // </Router>
   );
 }
 

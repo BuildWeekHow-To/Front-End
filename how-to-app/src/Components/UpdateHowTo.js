@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import axios from "axios";
 import {axiosWithAuth, axiosWithoutAuth} from './utils/axiosWithAuth';
 
 const initial = {
@@ -13,9 +12,11 @@ export const UpdateHowTo = props => {
 
     useEffect(()=>{
         console.log(props.match.params.id)
-        axiosWithAuth()
+        axiosWithoutAuth()
             .get(`howtos/${props.match.params.id}`)
-            .then(res => setUpdateForm(res.data))
+            .then(res => {
+                console.log(res.data);
+                setUpdateForm(res.data)})
             .catch(err => console.log('this is useEffect error',err))
     },[])
 
@@ -23,7 +24,7 @@ export const UpdateHowTo = props => {
 const handleSubmit = event => {
     event.preventDefault();
     axiosWithoutAuth()
-        .put(`https://build-week-how-to.herokuapp.com/api/howtos/${props.match.params.id}`, updateForm)
+        .put(`howtos/${props.match.params.id}`, updateForm)
         .then(()=>{
             console.log(updateForm.id);
             props.history.push(`/dashboard`)
@@ -55,7 +56,7 @@ const handleChange=event=>{
 
 
                 <button type="submit">
-                   Update
+                    Update
                 </button>
             </form>
         </div>

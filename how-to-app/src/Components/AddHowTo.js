@@ -127,14 +127,17 @@ background-color: #ADF1D2;
 
 
 export class AddHowTo extends React.Component {
-    state = {
-        addNewHowTo: {
-            name: '',
-            desc: '',
-            user_id: localStorage.getItem("user_id")
-        }
-    };
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            addNewHowTo:{
+                name:'',
+                desc:'',
+                user_id: localStorage.getItem("user_id")
+            }
+        };
+    }
+  
     handleChange = e => {
         this.setState({
             addNewHowTo: {
@@ -146,12 +149,13 @@ export class AddHowTo extends React.Component {
 
     postNewHowTo = () => {
         axiosWithoutAuth()
-            .post('howtos', this.state.addNewHowTo)
-            .then(res => {
-                console.log(res)
-                //  this.props.history.push('/dashboard')
-                window.location = "/dashboard"
-            })
+
+        .post('howtos', this.state.addNewHowTo)
+        .then(res => {
+            console.log(res)
+            // this.props.history.push('/dashboard')
+             window.location="/dashboard"
+        })      
     }
 
     render() {
@@ -162,26 +166,26 @@ export class AddHowTo extends React.Component {
                 <link rel={"stylesheet"} href={"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"} />
                 <Icons>
                     <Yellow>
-                        <i class="fa fa-car"></i>
+                        <i className="fa fa-car"></i>
                     </Yellow>
                     <Pink>
-                        <i class="fa fa-bicycle"></i>
+                        <i className="fa fa-bicycle"></i>
                     </Pink>
 
                     <Red>
-                        <i class="fa fa-camera"></i>
+                        <i className="fa fa-camera"></i>
                     </Red>
 
                     <Blue>
-                        <i class="fa fa-coffee"></i>
+                        <i className="fa fa-coffee"></i>
                     </Blue>
 
                     <Violet>
-                        <i class="fa fa-glass"></i>
+                        <i className="fa fa-glass"></i>
                     </Violet>
 
                     <Violet>
-                        <i class="fa fa-globe"></i>
+                        <i className="fa fa-globe"></i>
                     </Violet>
 
                 </Icons>

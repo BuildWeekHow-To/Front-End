@@ -20,3 +20,9 @@
 .App-link {
   color: #09d3ac;
 }
+
+.searchinput[type="text"] {
+  padding: 10px;
+  border: 1px solid #263650;
+  border-radius: 5px;
+}

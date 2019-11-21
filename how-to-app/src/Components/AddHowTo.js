@@ -147,14 +147,15 @@ export class AddHowTo extends React.Component {
         });
     };
 
-    postNewHowTo = () => {
+    postNewHowTo = (e) => {
+        console.log(this.props)
+        e.preventDefault()
         axiosWithoutAuth()
-
         .post('howtos', this.state.addNewHowTo)
         .then(res => {
             console.log(res)
-            // this.props.history.push('/dashboard')
-             window.location="/dashboard"
+            this.props.history.push('/dashboard')
+            // window.location="/dashboard"
         })      
     }
 
@@ -210,7 +211,7 @@ export class AddHowTo extends React.Component {
 
                         <ButtonStyle type="submit" onClick={this.postNewHowTo}>
                             Publish
-                    </ButtonStyle>
+                        </ButtonStyle>
                     </form>
                 </Howto>
             </div>

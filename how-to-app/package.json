@@ -13,6 +13,7 @@
     "yup": "^0.27.0"
   },
   "scripts": {
+    "deploy": "yarn run build && now ./build --name=how-to-app-spa",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

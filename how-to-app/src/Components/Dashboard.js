@@ -1,4 +1,4 @@
-import React, {useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Styled from 'styled-components';
 import axios from "axios";
 import {axiosWithoutAuth} from './utils/axiosWithAuth';
@@ -25,17 +25,17 @@ export default class Dashboard extends React.Component{
         }
     }
 
-    getData=()=>{
-            axiosWithoutAuth()
+    getData = () => {
+        axiosWithoutAuth()
             .get('howtos')
             .then(res => {
                 console.log(res.data)
-                this.setState({howtos: res.data})
+                this.setState({ howtos: res.data })
             })
             .catch(err => console.log(err))
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.getData();
     }
 

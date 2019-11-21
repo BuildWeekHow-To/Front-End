@@ -1,5 +1,5 @@
 import React from 'react';
-import {axiosWithoutAuth} from './utils/axiosWithAuth';
+import { axiosWithoutAuth } from './utils/axiosWithAuth';
 import Styled from 'styled-components';
 
 const Icons = Styled.div`
@@ -55,9 +55,7 @@ font-size: 70px;
 :hover{
     color: #FF1493;
     transform: scale(1.5) rotate(-30deg);
-
-    
-   
+ 
 }
 
 `
@@ -68,9 +66,7 @@ font-size: 70px;
 
 :hover{
     color: 	#B22222;
-    transform: scale(1.5) rotate(-30deg);
-
-    
+    transform: scale(1.5) rotate(-30deg);  
    
 }
 
@@ -141,7 +137,7 @@ export class AddHowTo extends React.Component {
             }
         };
     }
-
+  
     handleChange = e => {
         this.setState({
             addNewHowTo: {
@@ -153,19 +149,20 @@ export class AddHowTo extends React.Component {
 
     postNewHowTo = () => {
         axiosWithoutAuth()
+
         .post('howtos', this.state.addNewHowTo)
         .then(res => {
             console.log(res)
             // this.props.history.push('/dashboard')
              window.location="/dashboard"
-        })
+        })      
     }
 
     render() {
         return (
             <div>
                 <h2>Add How-To</h2>
-                
+
                 <link rel={"stylesheet"} href={"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"} />
                 <Icons>
                     <Yellow>

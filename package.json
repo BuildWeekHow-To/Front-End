@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "netlify-cli": "^2.21.0"
+    "query-string": "^6.9.0"
   }
 }

@@ -29,7 +29,7 @@ function App() {
           <Route path='/signup' component={SignUp} />
           <Route path='/searchform' component={SearchForm} />
           <Route path='/' component={LogInForms} />
-          <Redirect from='/update-howtos/:id' to='/update-howtos/:id' />
+          {/* <Redirect from='/update-howtos/:id' to='/update-howtos/:id' /> */}
         </Switch>
       </div>
     // </Router>

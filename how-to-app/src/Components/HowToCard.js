@@ -21,11 +21,13 @@ const IndividualCards = Styled.div`
     cursor: pointer;
     text-transform: capitalize;
     opacity: .8;
+
     :hover{
         transform: scale(1.1);
         color: white;
         opacity: 1;
     }
+
 `
 
 const EditButton = Styled.button`
@@ -67,7 +69,14 @@ font-weight: 400;
     background-color: red;
     box-shadow: 10px 5px 5px #070707;
 }
+
 `
+
+const H2 = Styled.h2`
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+`
+
 
 export const HowToCard = props => {
     // console.log(props)
@@ -82,7 +91,9 @@ export const HowToCard = props => {
                         Edit
                     </Link> */}
 
+
                     <EditButton onClick={(e) => {
+
                         e.preventDefault();
                         console.log('Button CLicked');
                         props.history.push(`/update-howtos/${item.id}`);

@@ -13,8 +13,6 @@ border-radius: 1rem;
 width: 25%;
 margin: 1rem;
 `
-
-
 export const HowToCard = props => {
 // console.log(props)
     return(

@@ -13,44 +13,6 @@ border-radius: 1rem;
 width: 25%;
 margin: 1rem;
 `
-const EditButton = Styled.div`
-color: #fff !important;
-text-decoration: none;
-background: #553555;
-padding: 10px;
-border-radius: 5px;
-display: inline-block;
-text-align: center;
-border: none;
-margin: 20px;
-width: 20px;
-height: 15px;
-font-size: .8rem;
-font-weight: 400;
-
-&:hover{
-    background-color: #ADF1D2;
-    box-shadow: 10px 5px 5px #070707;
-`
-const DeleteButton = Styled.div`
-color: #fff !important;
-text-decoration: none;
-background: #553555;
-padding: 10px;
-border-radius: 5px;
-display: inline-block;
-text-align: center;
-border: none;
-margin: 20px;
-width: 35px;
-height: 15px;
-font-size: .8rem;
-font-weight: 400;
-
-&:hover{
-    background-color: red;
-    box-shadow: 10px 5px 5px #070707;
-`
 
 export const HowToCard = props => {
     // console.log(props)

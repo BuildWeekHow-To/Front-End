@@ -27,19 +27,19 @@ export const HowToCard = props => {
                         Edit
                     </Link> */}
 
-                    <EditButton onClick={(e)=> {
+                    <button onClick={(e)=> {
                         e.preventDefault();
                         console.log('Button CLicked'); 
                         props.history.push(`/update-howtos/${item.id}`); 
 
                     }} >
                         Edit
-                    </EditButton>
+                    </button>
 
 
-                    <DeleteButton onClick={() => props.deleteCard(item.id)}>
+                    <button onClick={() => props.deleteCard(item.id)}>
                         Delete
-                    </DeleteButton>
+                    </button>
 
                 </IndividualCards>
             ))}

@@ -28,7 +28,10 @@ export const HowToCard = props => {
                         Edit
                     </Link> */}
 
-                    <button onClick={()=> {props.history.push(`/update-howtos/${item.id}`); window.location.reload();
+                    <button onClick={(e)=> {
+                        e.preventDefault();
+                        console.log('Button CLicked'); 
+                        props.history.push(`/update-howtos/${item.id}`); 
                     }} >
                             Edit
                     </button>
@@ -48,3 +51,5 @@ export const HowToCard = props => {
 {/* <button onClick={()=> {props.history.push(`/update-howtos/${item.id}`)}} >
                             Edit
                         </button> */}
+
+                        // window.location.reload();

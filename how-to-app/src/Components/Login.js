@@ -19,7 +19,7 @@ font-size: 70px;
 :hover{
     color: #96C5B0;
     transform: scale(1.5) rotate(30deg);
-   
+    
 }
 
 `

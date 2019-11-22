@@ -6,9 +6,9 @@ import styled from 'styled-components';
 
 
 const H1Style = styled.h1`
-width: 20%;
-color: white;
-font-size: 2rem;
+    width: 20%;
+    color: white;
+    font-size: 2rem;
 `
 const NavBox = styled.nav`
     display: flex;
@@ -19,28 +19,28 @@ const NavBox = styled.nav`
 `
 
 const NavLink = styled(Link)`
-margin: 1%;
-width: 150px;
-text-decoration: none;
-color: white;
+    margin: 1%;
+    width: 150px;
+    text-decoration: none;
+    color: white;
 
-&:hover{
-    color: #ADF1D2;
-}
+    &:hover{
+        color: #ADF1D2;
+    }
 `
 
 const BoxSpan = styled.span`
-border: 1px solid white;
-padding: 10px;
+    border: 1px solid white;
+    padding: 10px;
 
-&:hover{
-    border: 1px solid #ADF1D2;
-}
+    &:hover{
+        border: 1px solid #ADF1D2;
+    }
 `
 const NavDiv = styled.div`
-display: flex;
-width: 100%;
-justify-content: flex-end;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
 `
 
 const Nav = () => {

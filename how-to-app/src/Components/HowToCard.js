@@ -8,6 +8,8 @@ const CardsContainer = Styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    
 `
 const IndividualCards = Styled.div`
     background-color: #BF77BF;

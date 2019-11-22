@@ -7,40 +7,42 @@ display: flex;
 flex-wrap: wrap;
 `
 
-const IndividualCards= Styled.div`
+const IndividualCards = Styled.div`
 border: 1px solid black;
 border-radius: 1rem;
 width: 25%;
 margin: 1rem;
 `
+
 export const HowToCard = props => {
-// console.log(props)
-    return(
+    // console.log(props)
+    return (
         <div>
             {props.howtos.map(item => (
                 <IndividualCards key={item.id} className='IndividualCards' >
                     <h2> {item.name} </h2>
                     <p> {item.desc} </p>
-                    
+
                     {/* <Link to={`/update-howtos/${item.id}`}>
                         Edit
                     </Link> */}
 
-                    <button onClick={(e)=> {
+                    <EditButton onClick={(e)=> {
                         e.preventDefault();
                         console.log('Button CLicked'); 
                         props.history.push(`/update-howtos/${item.id}`); 
+
                     }} >
-                            Edit
-                    </button>
-                    
-            
-                    <button  onClick={()=>props.deleteCard(item.id)}>
+                        Edit
+                    </EditButton>
+
+
+                    <DeleteButton onClick={() => props.deleteCard(item.id)}>
                         Delete
-                    </button>
+                    </DeleteButton>
 
                 </IndividualCards>
-                ))}
+            ))}
 
         </div>
     )

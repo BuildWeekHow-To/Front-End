@@ -5,15 +5,25 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 
 const CardsContainer = Styled.div`
-display: flex;
-flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 `
-
 const IndividualCards = Styled.div`
-border: 1px solid black;
-border-radius: 1rem;
-width: 25%;
-margin: 1%;
+    background-color: #BF77BF;
+    border-radius: .8rem;
+    width: 30%;
+    height: 55vh;
+    margin: 1rem;
+    color: #070707;
+    cursor: pointer;
+    text-transform: capitalize;
+    opacity: .8;
+    :hover{
+        transform: scale(1.1);
+        color: white;
+        opacity: 1;
+    }
 `
 
 const EditButton = Styled.button`

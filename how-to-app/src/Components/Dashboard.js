@@ -1,48 +1,65 @@
-import React, {useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Styled from 'styled-components';
-import {axiosWithoutAuth} from './utils/axiosWithAuth';
+import { axiosWithoutAuth } from './utils/axiosWithAuth';
 
 const CardsContainer = Styled.div`
-display: flex;
-flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 `
 
-const IndividualCards= Styled.div`
-border: 1px solid black;
-border-radius: 1rem;
-width: 25%;
-margin: 1rem;
+const IndividualCards = Styled.div`
+    background-color: #bf77bf; 
+    border-radius: .8rem;
+    width: 30%;
+    height: 55vh;
+    margin: 1rem;
+    color: #070707;
+    cursor: pointer;
+    text-transform: capitalize;
+    opacity: .8;
+
+    :hover{
+        transform: scale(1.1);
+        color: white;
+        opacity: 1;
+    }
 `
 
-export default class Dashboard extends React.Component{
-    constructor(){
+const H2 = Styled.h2`
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+`
+
+export default class Dashboard extends React.Component {
+    constructor() {
         super();
-        this.state={
-            howtos:[]
+        this.state = {
+            howtos: []
         }
     }
 
-    getData=()=>{
-            axiosWithoutAuth()
+    getData = () => {
+        axiosWithoutAuth()
             .get('howtos')
             .then(res => {
                 console.log(res.data)
-                this.setState({howtos: res.data})
+                this.setState({ howtos: res.data })
             })
             .catch(err => console.log(err))
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.getData();
     }
 
-    render(){
+    render() {
         const howtos = this.state.howtos;
-        return(
+        return (
             <CardsContainer className='CardsContainer' >
                 {howtos.map(item => (
                     <IndividualCards key={item.id} className='IndividualCards' >
-                        <h2> {item.name} </h2>
+                        <H2> {item.name} </H2>
                         <p> {item.desc} </p>
 
                     </IndividualCards>

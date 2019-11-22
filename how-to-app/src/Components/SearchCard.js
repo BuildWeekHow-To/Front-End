@@ -1,5 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+const CardContainer = styled.div`
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+`
+
 const IndividualCard = styled.div`
 background-color: #BF77BF;
     border-radius: .8rem;
@@ -15,11 +22,8 @@ background-color: #BF77BF;
         color: white;
         opacity: 1;
 `
-const CardContainer = styled.div`
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-`
+
+
 export default function SearchCard(props) {
     return (
         <CardContainer>

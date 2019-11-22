@@ -8,10 +8,11 @@ const CardsContainer = Styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    
 `
-
 const IndividualCards = Styled.div`
-    background-color: #bf77bf; 
+    background-color: #BF77BF;
     border-radius: .8rem;
     width: 30%;
     height: 55vh;
@@ -26,6 +27,49 @@ const IndividualCards = Styled.div`
         color: white;
         opacity: 1;
     }
+
+`
+
+const EditButton = Styled.button`
+color: #fff !important;
+text-decoration: none;
+background: #553555;
+padding: 10px;
+border-radius: 5px;
+display: inline-block;
+text-align: center;
+border: none;
+margin: 20px;
+width: 50px;
+height: 40px;
+font-size: .8rem;
+font-weight: 400;
+
+&:hover{
+    background-color: #ADF1D2;
+    box-shadow: 10px 5px 5px #070707;
+}
+`
+const DeleteButton = Styled.button`
+color: #fff !important;
+text-decoration: none;
+background: #553555;
+padding: 10px;
+border-radius: 5px;
+display: inline-block;
+text-align: center;
+border: none;
+margin: 20px;
+width: 60px;
+height: 40px;
+font-size: .8rem;
+font-weight: 400;
+
+&:hover{
+    background-color: red;
+    box-shadow: 10px 5px 5px #070707;
+}
+
 `
 
 const H2 = Styled.h2`
@@ -37,7 +81,7 @@ const H2 = Styled.h2`
 export const HowToCard = props => {
     // console.log(props)
     return (
-        <div>
+        <CardsContainer>
             {props.howtos.map(item => (
                 <IndividualCards key={item.id} className='IndividualCards' >
                     <h2> {item.name} </h2>
@@ -47,24 +91,26 @@ export const HowToCard = props => {
                         Edit
                     </Link> */}
 
-                    <button onClick={(e) => {
+
+                    <EditButton onClick={(e) => {
+
                         e.preventDefault();
                         console.log('Button CLicked');
                         props.history.push(`/update-howtos/${item.id}`);
 
                     }} >
                         Edit
-                    </button>
+                    </EditButton>
 
 
-                    <button onClick={() => props.deleteCard(item.id)}>
+                    <DeleteButton onClick={() => props.deleteCard(item.id)}>
                         Delete
-                    </button>
+                    </DeleteButton>
 
                 </IndividualCards>
             ))}
 
-        </div>
+        </CardsContainer>
     )
 }
 

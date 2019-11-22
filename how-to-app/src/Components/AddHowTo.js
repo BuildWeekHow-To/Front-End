@@ -1,5 +1,5 @@
 import React from 'react';
-import {axiosWithoutAuth} from './utils/axiosWithAuth';
+import { axiosWithoutAuth } from './utils/axiosWithAuth';
 import Styled from 'styled-components';
 
 const Icons = Styled.div`
@@ -55,9 +55,7 @@ font-size: 70px;
 :hover{
     color: #FF1493;
     transform: scale(1.5) rotate(-30deg);
-
-    
-   
+ 
 }
 
 `
@@ -68,9 +66,7 @@ font-size: 70px;
 
 :hover{
     color: 	#B22222;
-    transform: scale(1.5) rotate(-30deg);
-
-    
+    transform: scale(1.5) rotate(-30deg);  
    
 }
 
@@ -131,14 +127,17 @@ background-color: #ADF1D2;
 
 
 export class AddHowTo extends React.Component {
-    state = {
-        addNewHowTo:{
-            name:'',
-            desc:'',
-            user_id: localStorage.getItem("user_id")
-        }
-    };
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            addNewHowTo:{
+                name:'',
+                desc:'',
+                user_id: localStorage.getItem("user_id")
+            }
+        };
+    }
+  
     handleChange = e => {
         this.setState({
             addNewHowTo: {
@@ -148,44 +147,46 @@ export class AddHowTo extends React.Component {
         });
     };
 
-    postNewHowTo = () => {
+    postNewHowTo = (e) => {
+        console.log(this.props)
+        e.preventDefault()
         axiosWithoutAuth()
         .post('howtos', this.state.addNewHowTo)
         .then(res => {
             console.log(res)
-        //  this.props.history.push('/dashboard')
-            window.location="/dashboard"
-        })
+            this.props.history.push('/dashboard')
+            // window.location="/dashboard"
+        })      
     }
 
     render() {
         return (
             <div>
                 <h2>Add How-To</h2>
-                
+
                 <link rel={"stylesheet"} href={"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"} />
                 <Icons>
                     <Yellow>
-                        <i class="fa fa-car"></i>
+                        <i className="fa fa-car"></i>
                     </Yellow>
                     <Pink>
-                        <i class="fa fa-bicycle"></i>
+                        <i className="fa fa-bicycle"></i>
                     </Pink>
 
                     <Red>
-                        <i class="fa fa-camera"></i>
+                        <i className="fa fa-camera"></i>
                     </Red>
 
                     <Blue>
-                        <i class="fa fa-coffee"></i>
+                        <i className="fa fa-coffee"></i>
                     </Blue>
 
                     <Violet>
-                        <i class="fa fa-glass"></i>
+                        <i className="fa fa-glass"></i>
                     </Violet>
 
                     <Violet>
-                        <i class="fa fa-globe"></i>
+                        <i className="fa fa-globe"></i>
                     </Violet>
 
                 </Icons>
@@ -210,7 +211,7 @@ export class AddHowTo extends React.Component {
 
                         <ButtonStyle type="submit" onClick={this.postNewHowTo}>
                             Publish
-                    </ButtonStyle>
+                        </ButtonStyle>
                     </form>
                 </Howto>
             </div>

@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from 'styled-components';
 
 
+
+
 const H1Style = styled.h1`
     width: 20%;
     color: white;
@@ -46,8 +48,10 @@ const Nav = () => {
         <div>
             <NavBox>
                 <H1Style>How-To</H1Style>
+
                 <NavDiv>
                     <NavLink to="/dashboard">Newsfeed</NavLink>
+                    <NavLink to="/searchform">Search</NavLink>
                     <NavLink to="/add-how-to">Create Content</NavLink>
                     <NavLink to="/login">Login</NavLink>
                     <NavLink to="/signUp"><BoxSpan>Sign Up</BoxSpan></NavLink>

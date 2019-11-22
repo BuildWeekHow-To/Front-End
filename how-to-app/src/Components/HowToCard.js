@@ -65,7 +65,7 @@ export const HowToCard = props => {
                         Edit
                     </Link> */}
 
-                    <button onClick={(e)=> {
+                    <EditButton onClick={(e)=> {
                         e.preventDefault();
                         console.log('Button CLicked'); 
                         props.history.push(`/update-howtos/${item.id}`); 

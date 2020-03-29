@@ -2,14 +2,11 @@ import React from 'react';
 import Styled from 'styled-components';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-
-
 const CardsContainer = Styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    
 `
 const IndividualCards = Styled.div`
     background-color: #BF77BF;
@@ -69,14 +66,7 @@ font-weight: 400;
     background-color: red;
     box-shadow: 10px 5px 5px #070707;
 }
-
 `
-
-const H2 = Styled.h2`
-    border-bottom: 2px solid white;
-    padding-bottom: 5px;
-`
-
 
 export const HowToCard = props => {
     // console.log(props)
@@ -91,12 +81,11 @@ export const HowToCard = props => {
                         Edit
                     </Link> */}
 
-
                     <EditButton onClick={(e) => {
 
                         e.preventDefault();
-                        console.log('Button CLicked');
-                        props.history.push(`/update-howtos/${item.id}`);
+                        console.log('Button CLicked'); 
+                        props.history.push(`/update-howtos/${item.id}`); 
 
                     }} >
                         Edit

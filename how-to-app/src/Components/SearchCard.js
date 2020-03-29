@@ -1,17 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const IndividualCard = styled.div`
-border: 1px solid black;
-border-radius: 1rem;
-width: 25%;
-margin: 1rem;
-`
 const CardContainer = styled.div`
 display: flex;
 flex-wrap: wrap;
-
+justify-content: center;
+align-items: center;
 `
+
+const IndividualCard = styled.div`
+background-color: #BF77BF;
+    border-radius: .8rem;
+    width: 30%;
+    height: 55vh;
+    margin: 1rem;
+    color: #070707;
+    cursor: pointer;
+    text-transform: capitalize;
+    opacity: .8;
+    :hover{
+        transform: scale(1.1);
+        color: white;
+        opacity: 1;
+`
+
 
 export default function SearchCard(props) {
     return (
@@ -21,7 +32,6 @@ export default function SearchCard(props) {
                 <p>{props.desc}</p>
             </IndividualCard>
         </CardContainer>
-
-
     )
 }
+

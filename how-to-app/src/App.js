@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link , Redirect} from 'react-router-dom';
+import { Route, Switch, HashRouter } from 'react-router-dom';
 
 import './App.css';
 
@@ -9,7 +9,7 @@ import Dashboard from "./Components/Dashboard";
 import { AddHowTo } from "./Components/AddHowTo";
 import PrivateRoute from "./Components/PrivateRoute";
 import Nav from "./Components/Nav";
-import {UpdateHowTo} from "./Components/UpdateHowTo";
+import { UpdateHowTo } from "./Components/UpdateHowTo";
 import SearchForm from "./Components/SearchForm";
 
 
@@ -18,8 +18,9 @@ import SearchForm from "./Components/SearchForm";
 function App() {
   return (
     // <Router>
-      <div className="App">
-        <Nav />
+    <div className="App">
+      <Nav />
+      <HashRouter>
 
         <Switch>
           <PrivateRoute path='/add-how-to' component={AddHowTo} />
@@ -31,7 +32,8 @@ function App() {
           <Route path='/' component={LogInForms} />
           {/* <Redirect from='/update-howtos/:id' to='/update-howtos/:id' /> */}
         </Switch>
-      </div>
+      </HashRouter>
+    </div>
     // </Router>
   );
 }
